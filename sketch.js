@@ -103,6 +103,8 @@ function keyPressed() {
   if (hitLetter) {
     hitLetter.remove(activeTypewriters);
     counter += 1;
+  } else {
+    removeLife();
   }
 }
 
