@@ -42,6 +42,7 @@ class Letter {
     translate(this.pos.x, this.pos.y);
     rotate(radians(this.rotation));
     textSize(Letter.LETTER_HEIGHT);
+    noStroke();
     fill(this.isHit ? color(90, 80, 62, this.opacity) : color("#3D0814"));
     text(this.letter.toUpperCase(), 0, 0);
     pop();

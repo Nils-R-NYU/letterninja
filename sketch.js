@@ -11,6 +11,8 @@ let gameRunning;
 let activeTypewriters = [];
 let letters = [];
 
+let damageOpacity = 0;
+
 function preload() {
   backgroundImage = loadImage("./Background.webp");
   font = loadFont("./XTypewriter-Bold.ttf");
@@ -44,6 +46,10 @@ function draw() {
     spawnWave();
   }
 
+  if (damageOpacity > 0) {
+    damageOpacity -= 5;
+    drawDamageScreen();
+  }
   drawLifes();
   drawCounter();
 
@@ -69,6 +75,8 @@ function spawnWave() {
 }
 
 const removeLife = () => {
+  if (!gameRunning) return;
+  damageOpacity = 150;
   lifes--;
 
   if (lifes === 0) {
@@ -152,4 +160,11 @@ function drawEndScreen() {
   textSize(50);
   textAlign(CENTER, CENTER);
   text("New Game", width / 2, height / 2 + 140);
+}
+
+function drawDamageScreen() {
+  push();
+  fill(255, 0, 0, damageOpacity);
+  rect(0, 0, width, height);
+  pop();
 }

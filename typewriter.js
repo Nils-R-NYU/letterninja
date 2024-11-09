@@ -1,5 +1,5 @@
 class Typewriter {
-  static SHOW_FOR_FRAMES = 15;
+  static SHOW_FOR_FRAMES = 5;
   static BAR_WIDTH = 10;
   static SHADOW_OFFSET = { X: 5, Y: 5 };
   static HEAD_LENGTH = 50;
